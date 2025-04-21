@@ -1,0 +1,19 @@
+-- This query shows the listing price and the amount that prices is from median overall listing price for all of NY City.  A CTE was used to fist calculate the median so that it could be used to compare with the individual listings in the main query.
+
+WITH med_price AS (
+    SELECT 
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY price) AS Median
+    FROM 
+        listings
+)
+-- Distance from median
+SELECT 
+	host_id, 
+	neighbourhood,
+	price,
+	neighbourhood_group,
+    (l.price - m.Median) AS distance_from_median
+FROM 
+    listings l
+JOIN 
+    med_price m ON true;
