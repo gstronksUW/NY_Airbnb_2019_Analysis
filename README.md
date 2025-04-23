@@ -8,17 +8,32 @@ the questions the will be answered are the following
 
 1. What is the average cost of each room type accross the city?
 
-SELECT 
-    room_type,
-    ROUND(AVG(price), 2) AS avg_price
-FROM 
-    listings
-GROUP BY 
-    room_type
-ORDER BY 
-    avg_price DESC;
+select
+	neighbourhood_group,
+	round(avg(distinct case when room_type='Entire home/apt' then price end),2) as Entire_home_ct,
+	round(avg(distinct case when room_type='Private room' then price end),2) as Private_room_ct,
+	round(avg(distinct case when room_type='Shared room' then price end),2) as Shared_room_ct
+from 
+	listings
+Group by 
+	neighbourhood_group
+;
 
-2..  What is the difference from the median price of each listing.
+
+2. What are the total number of listings for each type of room?
+
+select
+	neighbourhood_group,
+ 	count(distinct case when room_type='Entire home/apt' then id end) as Entire_home_ct,
+	count(distinct case when room_type='Private room' then id end) as Private_room_ct,
+	count(distinct case when room_type='Shared room' then id end) as Shared_room_ct
+from 
+	listings
+Group by 
+	neighbourhood_group
+;
+
+3.  What is the difference from the median price of each listing.
 
 
 WITH med_price AS (
@@ -47,29 +62,25 @@ Order by
 
 
 
-3.  What are the total number of listings in each neighbourhood by room type and the median price.
+4.  What neighborhoods have the most and least average availability
 
-Select
-	Neighbourhood_group,
-	room_type,
-	count(distinct(id)),
-	PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY price) AS Median
-	
+select 
+	neighbourhood_group,
+	--room_type,
+	--round(avg(listings.availability_365),2) as Avg_availability,
+	round(avg(distinct case when room_type='Entire home/apt' then listings.availability_365 end),2) as Entire_home_availability,
+	round(avg(distinct case when room_type='Private room' then listings.availability_365 end),2) as Private_room_availability,
+	round(avg(distinct case when room_type='Shared room' then listings.availability_365 end),2) as Shared_room_availability
 from 
 	listings
-group by 
-	listings.neighbourhood_group,
-	listings.room_type
+group by
+	neighbourhood_group
 ;
 
 
-4.  What neighborhoods have the most and least average availability
 
 
-
-
-
-5.  For each listings, what is the difference between the price and the average room_type price for each listing?
+6.  For each listings, what is the difference between the price and the average room_type price for each listing?
 
 
 With avg_price_loc as (
@@ -109,13 +120,13 @@ order by
 
 SELECT 
 	listings.neighbourhood_group,
-    room_type,
-    ROUND(AVG(price), 2) AS avg_price
+	room_type,
+	ROUND(AVG(price), 2) AS avg_price
 FROM 
-    listings
+	listings
 GROUP BY 
 	neighbourhood_group,
-    room_type
+	room_type
 ORDER BY 
     neighbourhood_group DESC;
 
