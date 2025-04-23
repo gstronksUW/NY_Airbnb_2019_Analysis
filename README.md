@@ -51,6 +51,9 @@ Group by
 ;
 
 
+![image](https://github.com/user-attachments/assets/acf3013b-8fac-40d8-89c5-efcf7e00a9d7)
+
+
 2. What are the total number of listings for each type of room?
 
 select
