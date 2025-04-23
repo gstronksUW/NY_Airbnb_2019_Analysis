@@ -6,7 +6,19 @@ this analysis is focused on the business questions related to a client similar t
 
 the questions the will be answered are the following
 
-1.  What is the difference from the median price of each listing.
+1. What is the average cost of each room type accross the city?
+
+SELECT 
+    room_type,
+    ROUND(AVG(price), 2) AS avg_price
+FROM 
+    listings
+GROUP BY 
+    room_type
+ORDER BY 
+    avg_price DESC;
+
+2..  What is the difference from the median price of each listing.
 
 
 WITH med_price AS (
@@ -35,7 +47,7 @@ Order by
 
 
 
-2.  What are the total number of listings in each neighbourhood by room type and the median price.
+3.  What are the total number of listings in each neighbourhood by room type and the median price.
 
 Select
 	Neighbourhood_group,
@@ -51,13 +63,13 @@ group by
 ;
 
 
-3.  What neighborhoods have the most and least average availability
+4.  What neighborhoods have the most and least average availability
 
 
 
 
 
-4.  For each listings, what is the difference between the price and the average room_type price for each listing?
+5.  For each listings, what is the difference between the price and the average room_type price for each listing?
 
 
 With avg_price_loc as (
@@ -80,7 +92,6 @@ select
 	avg_price,
 	price-avg_price as price_difference
 	
-	
 from 
 	listings
 left join 
@@ -95,6 +106,18 @@ order by
 
 
 5.  What is the most expensive neiborhood to rent each type of room? least expensive?
+
+SELECT 
+	listings.neighbourhood_group,
+    room_type,
+    ROUND(AVG(price), 2) AS avg_price
+FROM 
+    listings
+GROUP BY 
+	neighbourhood_group,
+    room_type
+ORDER BY 
+    neighbourhood_group DESC;
 
 
 
