@@ -64,6 +64,10 @@ Group by
 	neighbourhood_group
 ;
 
+![image](https://github.com/user-attachments/assets/86cb8d17-0462-423f-a722-c7238e7f9a0b)
+
+
+
 3.  What is the difference from the median price of each listing.
 
 
