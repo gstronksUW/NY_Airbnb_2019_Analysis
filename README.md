@@ -89,30 +89,32 @@ This result is more geared to the business side as they may want to track the in
 3.  What is the average price for each room type in each neighbourhood and how does that compare to the average price for each room type city wide.
 
 
-WITH med_price AS (
-    SELECT 
-        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY price) AS Median
+WITH avg_price AS (
+    SELECT
+        room_type,
+        ROUND(AVG(price)::numeric, 2) AS avg_rental_price_overall  -- Overall average price for each room type
     FROM 
         listings
+    GROUP BY 
+        room_type
 )
--- Distance from median
+
 SELECT 
-    neighbourhood_group,
-	room_type,
-	ROUND(AVG(price)::numeric, 2) AS avg_price,  -- Round avg price to 2 decimal places
-    ROUND(AVG(l.price - m.Median)::numeric, 2) AS difference_from_median  -- Round difference from median to 2 decimal places
+    l.neighbourhood_group,
+    l.room_type,
+    ROUND(AVG(l.price)::numeric, 2) AS avg_price,  -- Average price in each neighbourhood group, rounded to 2 decimal places
+    ROUND(AVG(l.price - avg_price.avg_rental_price_overall)::numeric, 2) AS difference_from_avg  -- Difference from the overall average price
 FROM 
     listings l
 JOIN 
-    med_price m ON true
+    avg_price ON avg_price.room_type = l.room_type  -- Join to get the overall avg price for room_type
 GROUP BY 
-    neighbourhood_group,
-	room_type
-order by 
-	neighbourhood_group
-	;
-
-
+    l.neighbourhood_group,
+    l.room_type,
+    avg_price.avg_rental_price_overall  -- Grouping by overall avg price for correct calculation
+ORDER BY 
+    l.neighbourhood_group, 
+    l.room_type;
 
 
 4.  What neighborhoods have the most and least average availability
