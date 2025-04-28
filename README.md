@@ -28,10 +28,9 @@ Next an number of questions were created of which the answers would be of intere
 Questions:
 1. What is the average cost of each room type accross the city?
 2. What are the total number of listings for each type of room?
-3. What is the difference from the median price of each listing.
+3. What is the average price for each room type in each neighbourhood and how does that compare to the average price for each room type city wide?
 4. What neighborhoods have the most and least average availability
-5. For each listings, what is the difference between the price and the average room_type price for each listing?
-6. What is the most expensive neiborhood to rent each type of room? least expensive?
+6. For each listings, how does the price compare to the average price of that same room type city wide?
 
 
 Analysis:
@@ -86,7 +85,7 @@ Group by
 
 This result is more geared to the business side as they may want to track the inventory but a client may also want to know what kind of room has the most listings and which neighborhoods are more popular for short term rentals.  In  this case, once again different neighborhoods have the majority of each room type.  For full apartments, Manhattan has the largest inventory by almost 3,500 of the next neighborhood which is Brooklyn.  On the other hand Brooklyn is more popular for private room rentals where the inventory exceeds the next neighborhood (Manhattan) by almost 2,000.  Finally, shared room inventory is much lower overall as the neighbourhood with the highest inventory is Manhattan with only 480 with Brooklyn close behind with 413.   
 
-3.  What is the average price for each room type in each neighbourhood and how does that compare to the average price for each room type city wide.
+3.  What is the average price for each room type in each neighbourhood and how does that compare to the average price for each room type city wide?
 
 
 WITH avg_price AS (
@@ -133,60 +132,7 @@ group by
 ;
 
 
-
-
-6.  For each listings, what is the difference between the price and the average room_type price for each listing?
-
-
-With avg_price_loc as (
-
-select
-	room_type,
-	round(avg(price),2) avg_price
-from 
-	listings
-group by
-	room_type 
-)
-
-select 
-	Neighbourhood_group,
-	id,
-	name,
-	listings.room_type,
-	Price,
-	avg_price,
-	price-avg_price as price_difference
-	
-from 
-	listings
-left join 
-avg_price_loc on avg_price_loc.room_type = listings.room_type
-
-order by 
-	neighbourhood_group,
-	room_type,
-	price_difference
-;
-	
-
-
-5.  What is the most expensive neiborhood to rent each type of room? least expensive?
-
-SELECT 
-	listings.neighbourhood_group,
-	room_type,
-	ROUND(AVG(price), 2) AS avg_price
-FROM 
-	listings
-GROUP BY 
-	neighbourhood_group,
-	room_type
-ORDER BY 
-    neighbourhood_group DESC;
-
-
-Summary/Insights:
+5. For each listings, how does the price compare to the average price of that same room type city wide?
 
 
 
