@@ -60,7 +60,7 @@ Group by
 
 
 
-This gives the client an idea of how much each type of rental is averaging in each neighbourhood.  As the data shows, that the rental of an entire home ranges from 167.00 in the Bronx to 662.00 in Manhattan.  For private rooms, the price ranges from 73.00 per night in Staten Island to 386.00 in Manhattan.  Finally, the shared room rental ranges from 58.00 in Staten Island to 139.00 in Manhattan.  The results show that for all rental type, Manhattan will be the most expensive on average while either Staten Island or the Bronx will provide the cheapest options.
+This gives the client an idea of how much each type of rental is averaging in each neighbourhood.  As the data shows, that the rental of an entire home ranges from 167.00 in the Bronx to 662.00 in Manhattan.  For private rooms, the price ranges from 73.00 per night in Staten Island to 386.00 in Manhattan.  Finally, the shared room rental ranges from 58.00 in Staten Island to 139.00 in Manhattan.  The results show that for all rental type, Manhattan will be the most expensive on average while either Staten Island or the Bronx will provide the cheapest options.  This is helpful in guiding the client to the possible neighborhoods that fit the price range for rentals if budget ranks high on the priority list.  
 
 
 
@@ -79,7 +79,7 @@ Group by
 
 ![image](https://github.com/user-attachments/assets/86cb8d17-0462-423f-a722-c7238e7f9a0b)
 
-
+This result is more geared to the business side as they may want to track the inventory but a client may also want to know what kind of room has the most listings and possible options for them to choose from.  
 
 3.  What is the difference from the median price of each listing.
 
