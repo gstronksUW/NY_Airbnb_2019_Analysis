@@ -77,6 +77,10 @@ Group by
 	neighbourhood_group
 ;
 
+
+![image](https://github.com/user-attachments/assets/94987bd6-0e3c-45da-8a14-5cde3dfec1d4)
+
+
 ![image](https://github.com/user-attachments/assets/86cb8d17-0462-423f-a722-c7238e7f9a0b)
 
 This result is more geared to the business side as they may want to track the inventory but a client may also want to know what kind of room has the most listings and possible options for them to choose from.  
