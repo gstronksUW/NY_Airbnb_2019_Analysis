@@ -84,9 +84,9 @@ Group by
 ![image](https://github.com/user-attachments/assets/722bf047-9a3b-4710-9870-fa39f27ec197)
 
 
-This result is more geared to the business side as they may want to track the inventory but a client may also want to know what kind of room has the most listings and possible options for them to choose from.  
+This result is more geared to the business side as they may want to track the inventory but a client may also want to know what kind of room has the most listings and which neighborhoods are more popular for short term rentals.  In  this case, once again different neighborhoods have the majority of each room type.  For full apartments, Manhattan has the largest inventory by almost 3,500 of the next neighborhood which is Brooklyn.  On the other hand Brooklyn is more popular for private room rentals where the inventory exceeds the next neighborhood (Manhattan) by almost 2,000.  Finally, shared room inventory is much lower overall as the neighbourhood with the highest inventory is Manhattan with only 480 with Brooklyn close behind with 413.   
 
-3.  What is the difference from the median price of each listing.
+3.  What is the average price for each room type in each neighbourhood and how does that compare to the average price for each room type city wide.
 
 
 WITH med_price AS (
@@ -97,21 +97,21 @@ WITH med_price AS (
 )
 -- Distance from median
 SELECT 
-	host_id, 
-	neighbourhood,
-	price,
-	neighbourhood_group,
-    (l.price - m.Median) AS difference_from_median
+    neighbourhood_group,
+	room_type,
+	ROUND(AVG(price)::numeric, 2) AS avg_price,  -- Round avg price to 2 decimal places
+    ROUND(AVG(l.price - m.Median)::numeric, 2) AS difference_from_median  -- Round difference from median to 2 decimal places
 FROM 
     listings l
 JOIN 
     med_price m ON true
-Where
-	price <> 0
-	
-Order by 
-	price 
+GROUP BY 
+    neighbourhood_group,
+	room_type
+order by 
+	neighbourhood_group
 	;
+
 
 
 
