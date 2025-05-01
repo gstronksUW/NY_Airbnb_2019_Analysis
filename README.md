@@ -115,6 +115,13 @@ ORDER BY
     l.neighbourhood_group, 
     l.room_type;
 
+![image](https://github.com/user-attachments/assets/6cb762df-1a74-4ee3-b51d-5d5b142d9d65)
+
+
+![image](https://github.com/user-attachments/assets/07e219a3-da71-4f96-b545-dbe335c7dc71)
+
+
+
 
 4.  What neighborhoods have the most and least average availability
 
