@@ -120,7 +120,7 @@ ORDER BY
 
 ![image](https://github.com/user-attachments/assets/07e219a3-da71-4f96-b545-dbe335c7dc71)
 
-
+A key metric for the rentals is how the individual price compares to the same rental type city wide.  The key metric is labeled as difference from avg and the only neighbourhood where each room type is above the city wide average is Manhattan.  The rest of the neigbhourhoods all have prices under the city wide average for each room type.    
 
 
 4.  What neighborhoods have the most and least average availability
@@ -137,6 +137,15 @@ from
 group by
 	neighbourhood_group
 ;
+
+![image](https://github.com/user-attachments/assets/f649688d-e95f-4f34-a6a7-5005f7bd823b)
+
+
+![image](https://github.com/user-attachments/assets/c2dc732d-24a4-4a12-9cec-072ca409b193)
+
+
+
+
 
 
 5. For each listings, how does the price compare to the average price of that same room type city wide?
