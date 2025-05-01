@@ -30,7 +30,6 @@ Questions:
 2. What are the total number of listings for each type of room?
 3. What is the average price for each room type in each neighbourhood and how does that compare to the average price for each room type city wide?
 4. What neighborhoods have the most and least average availability
-6. For each listings, how does the price compare to the average price of that same room type city wide?
 
 
 Analysis:
@@ -38,6 +37,8 @@ Analysis:
 the questions the will be answered are the following
 
 1. What is the average cost of each room type accross the city?
+
+To extract the data for this question, the data had to be filtered and rolled up by neighbourhood and then by room type.  For readability, the data was then pivoted by room type in order to compate the prices across each neighbourhood group.  This will show the relative affordability for each room type.
 
 
 select
@@ -148,8 +149,6 @@ group by
 
 
 
-
-5. For each listings, how does the price compare to the average price of that same room type city wide?
 
 
 
