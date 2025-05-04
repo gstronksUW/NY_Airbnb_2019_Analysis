@@ -151,7 +151,9 @@ The availability tends to differ based on the room type and location.  For examp
 
 
 
+Summary
 
+There are three major factors that a potential client is going to take in to account when looking to rent from Airbnb whcih include Location, room type, and availability.  The data suggests that while Manhattan is central to alot of the attractions in the city, you will pay a premium for that location regardless of the type of rental.  Looking at the variance from the average price city wide, there are potential savings in price by looking in other neighbourhoods especially in the Bronx where the average price of an entire home is 84.00 under the average price for that room type city wide.  The other neighbourhoods offer similar discounts to a lesser degree in the other room typs as well.  Manhattan is the only neighbourhood with rental price above the city wide average cost for each room type which helps quantify that location premium.  
 
 
 
