@@ -9,11 +9,11 @@ The data:
 The data focused on with this analysis is related to the following variables:
 
 Location - neighbourhood_group 
-room type - Entire home/apt, Private room, or shared room
-price - cost per night of the property
+Room type - Entire home/apt, Private room, or shared room
+Price - cost per night of the property
 Availability - the number of days the property is available during the year
 
-These were selected as the most relevant to a potential client for their personal use or for Airbnb to use to market to potential clients.
+These questions were selected as the most relevant to a potential client for their personal use or for Airbnb to use to market to potential clients. 
 
 
 Method:
@@ -147,7 +147,7 @@ group by
 
 
 
-
+The availability tends to differ based on the room type and location.  For example the availability for an entire home/apartment is between 180 and 190 days a year accross all neighbourhoods while the private room is at 180 to 185 days a year across all neighbourhoods except for Staten Island which has an average availability of 236 days per year.  The variance continues to increase with the shared room that ranges from 72 days in Staten Island to 195 days in Queens.  
 
 
 
